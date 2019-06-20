@@ -1,0 +1,59 @@
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title>Hello AngularJS</title>
+    <meta charset="utf-8">
+
+    <!-- load bootstrap and jquery via CDN -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.9/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <style>
+        * {
+            font-size: 1.05em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                    Hello AngularJS
+                </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div ng-controller="mainController">
+            <label>Tài Khoản Facebook của bạn là gì ?</label>
+           
+            <input type="text" ng-model="username">
+            <hr/>
+             <div class="alert alert-warning" ng-if="username.length !== 5"><!--  ng-hide, ng-show, ng-class('class':dieu kien) CÓ THỂ THÊM NHIỀU CLASS-->
+                <p>Vui lòng nhập 5 ký tự !!!</p>
+            </div>
+            <h1>facebook.com/{{lowercase()}}</h1>
+            <ul>
+                <li ng-repeat="rule in rules" ng-cloak>
+                    {{rule.rulename}}
+                </li>
+            </ul>
+            <hr/>
+            <input type="button" value="chạm vào em đi!!!" ng-click="alertClick()">
+            
+        </div>
+                
+    </div>
+
+</body>
+
+</html>
